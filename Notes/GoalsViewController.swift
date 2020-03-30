@@ -1,19 +1,22 @@
 //
 //  GoalsViewController.swift
-//  Notes
+//  Starfit
 //
-//  Created by Cindy Quach on 3/29/20.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
 //  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit
 
+
+//Goals View Controller file
 class GoalsViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var CaloriesTextField: UITextField!
     @IBOutlet var WaterTextField: UITextField!
     @IBOutlet var SugarTextField: UITextField!
 
+//Sends information from this screen to the next: IntakeViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let intakeVC = segue.destination as? IntakeViewController else {return}
         intakeVC.caloriesG = CaloriesTextField.text
