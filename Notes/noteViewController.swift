@@ -1,14 +1,15 @@
 //
 //  ViewController.swift
-//  Notes
+//  Starfit
 //
-//  Created by Irina on 7/30/17.
-//  Copyright © 2017 Apple Developer. All rights reserved.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
+//  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
+//Notes View Controller file
 class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var noteInfoView: UIView!
@@ -21,9 +22,8 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
     
     var managedObjectContext: NSManagedObjectContext? {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
     }
-    
+
     var notesFetchedResultsController: NSFetchedResultsController<Note>!
     var notes = [Note]()
     var note: Note?
@@ -33,23 +33,22 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load data
+//Load data
         if let note = note {
             noteNameLabel.text = note.noteName
             noteDescriptionLabel.text = note.noteDescription
             noteImageView.image = UIImage(data: note.noteImage! as Data)
-
         }
         
         if noteNameLabel.text != "" {
             isExsisting = true
         }
         
-        // Delegates
+//Delegates
         noteNameLabel.delegate = self
         noteDescriptionLabel.delegate = self
         
-        // Styles
+//Styles
         noteInfoView.layer.shadowColor =  UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).cgColor
         noteInfoView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
         noteInfoView.layer.shadowRadius = 1.5
@@ -70,7 +69,6 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
 
     // Core data
@@ -80,19 +78,14 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
                 try self.managedObjectContext?.save()
                 completion()
                 print("Note saved to CoreData.")
-                
             }
-            
             catch let error {
                 print("Could not save note to CoreData: \(error.localizedDescription)")
-                
             }
-            
         }
-        
     }
     
-    // Image Picker
+//Image Picker
     @IBAction func pickImageButtonWasPressed(_ sender: Any) {
         
         let pickerController = UIImagePickerController()
@@ -104,19 +97,16 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             pickerController.sourceType = .camera
             self.present(pickerController, animated: true, completion: nil)
-            
         }
         
         let photosLibraryAction = UIAlertAction(title: "Photos Library", style: .default) { (action) in
             pickerController.sourceType = .photoLibrary
             self.present(pickerController, animated: true, completion: nil)
-            
         }
         
         let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default) { (action) in
             pickerController.sourceType = .savedPhotosAlbum
             self.present(pickerController, animated: true, completion: nil)
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -127,7 +117,6 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -135,16 +124,14 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.noteImageView.image = image
-            
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        
     }
 
-    // Save
+//Save
     @IBAction func saveButtonWasPressed(_ sender: UIBarButtonItem) {
         if noteNameLabel.text == "" || noteNameLabel.text == "NOTE NAME" || noteDescriptionLabel.text == "" || noteDescriptionLabel.text == "Note Description..." {
             
@@ -152,9 +139,7 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
             let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
             
             alertController.addAction(OKAction)
-            
             self.present(alertController, animated: true, completion: nil)
-            
         }
         
         else {
@@ -171,25 +156,19 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
                 
                     note.noteName = noteName
                     note.noteDescription = noteDescription
-                
+    
                     saveToCoreData() {
                         
                         let isPresentingInAddFluidPatientMode = self.presentingViewController is UINavigationController
                         
                         if isPresentingInAddFluidPatientMode {
                             self.dismiss(animated: true, completion: nil)
-                            
                         }
-                        
                         else {
                             self.navigationController!.popViewController(animated: true)
-                            
                         }
-
                     }
-
                 }
-            
             }
             
             else if (isExsisting == true) {
@@ -211,67 +190,50 @@ class noteViewController: UIViewController, UITextFieldDelegate,  UINavigationCo
                     
                     if isPresentingInAddFluidPatientMode {
                         self.dismiss(animated: true, completion: nil)
-                        
                     }
                         
                     else {
                         self.navigationController!.popViewController(animated: true)
-                        
                     }
-
                 }
-                
                 catch {
                     print("Failed to update existing note.")
                 }
             }
-
         }
-
     }
     
-    // Cancel
+//Cancel
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         let isPresentingInAddFluidPatientMode = presentingViewController is UINavigationController
         
         if isPresentingInAddFluidPatientMode {
             dismiss(animated: true, completion: nil)
-            
         }
-        
         else {
             navigationController!.popViewController(animated: true)
-            
         }
-        
     }
     
-    // Text field
+//Text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
-        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             textView.resignFirstResponder()
             return false
-            
         }
-        
         return true
-        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.text == "Note Description...") {
             textView.text = ""
-            
         }
-        
     }
-    
 }
 
 extension UITextField {

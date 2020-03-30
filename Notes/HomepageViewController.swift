@@ -1,13 +1,14 @@
 //
 //  HomepageViewController.swift
-//  Notes
+//  Starfit
 //
-//  Created by Cindy Quach on 3/29/20.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
 //  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit
 
+//Homepage View Controller file
 class HomepageViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var CaloriesProgressLabel: UILabel!
@@ -25,7 +26,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
     var WLeft: String!
     var SLeft: String!
     
-    
+//Sets information retrieved from previous screen to display on this screen
     override func viewDidLoad() {
         super.viewDidLoad()
         CaloriesProgressLabel.text = CG

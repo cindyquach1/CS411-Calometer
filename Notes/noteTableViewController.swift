@@ -1,14 +1,16 @@
 //
 //  noteTableViewController.swift
-//  Notes
+//  Starfit
 //
-//  Created by Irina on 8/2/17.
-//  Copyright © 2017 Apple Developer. All rights reserved.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
+//  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
+
+//Table View Controller file
 class noteTableViewController: UITableViewController {
 
     var notes = [Note]()
@@ -21,7 +23,7 @@ class noteTableViewController: UITableViewController {
         super.viewDidLoad()
         retrieveNotes()
         
-        // Styles
+    //Styles
         self.tableView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
         
     }
@@ -36,7 +38,7 @@ class noteTableViewController: UITableViewController {
         
     }
 
-    // MARK: - Table view data source
+    //Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,9 +66,7 @@ class noteTableViewController: UITableViewController {
         if editingStyle == .delete {
 
         }
-        
         tableView.reloadData()
-        
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -86,16 +86,12 @@ class noteTableViewController: UITableViewController {
             
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
-
         }
         
         delete.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "trashIcon"))
-        
         return [delete]
-
     }
     
-    // MARK: NSCoding
     func retrieveNotes() {
         managedObjectContext?.perform {
             
@@ -103,13 +99,9 @@ class noteTableViewController: UITableViewController {
                 if let notes = notes {
                     self.notes = notes
                     self.tableView.reloadData()
-                    
                 }
-                
             }
-            
         }
-        
     }
     
     func fetchNotesFromCoreData(completion: @escaping ([Note]?)->Void){
@@ -120,19 +112,14 @@ class noteTableViewController: UITableViewController {
             do {
                 notes = try  self.managedObjectContext!.fetch(request)
                 completion(notes)
-                
             }
-            
             catch {
                 print("Could not fetch notes from CoreData:\(error.localizedDescription)")
-                
             }
-            
         }
-        
     }
 
-    // MARK: - Navigation
+//Prepares for next screen based off selected
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -143,16 +130,10 @@ class noteTableViewController: UITableViewController {
                 noteDetailsViewController.indexPath = indexPath.row
                 noteDetailsViewController.isExsisting = false
                 noteDetailsViewController.note = selectedNote
-                
             }
-            
         }
-            
         else if segue.identifier == "addItem" {
             print("User added a new note.")
-            
         }
-
     }
-
 }

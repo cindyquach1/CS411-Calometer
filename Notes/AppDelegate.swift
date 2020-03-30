@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Notes
+//  Starfit
 //
-//  Created by Irina on 7/30/17.
-//  Copyright © 2017 Apple Developer. All rights reserved.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
+//  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit

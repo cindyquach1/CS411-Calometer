@@ -1,13 +1,15 @@
 //
 //  noteTableViewCell.swift
-//  Notes
+//  Starfit
 //
-//  Created by Irina on 8/2/17.
-//  Copyright © 2017 Apple Developer. All rights reserved.
+//  Created by Cindy Quach and Victoria Tran on 3/29/20.
+//  Copyright © 2020 Apple Developer. All rights reserved.
 //
 
 import UIKit
 
+
+//For the notes table view cell
 class noteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var shadowView: UIView!
@@ -31,16 +33,13 @@ class noteTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func configureCell(note: Note) {
         
         self.noteNameLabel.text = note.noteName?.uppercased()
         self.noteDescriptionLabel.text = note.noteDescription
-        
         self.noteImageView.image = UIImage(data: note.noteImage! as Data)
-        
     }
 
 }
