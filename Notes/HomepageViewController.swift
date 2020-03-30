@@ -29,13 +29,12 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
 //Sets information retrieved from previous screen to display on this screen
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         CaloriesProgressLabel.text = CG
         WaterProgressLabel.text = WG
         SugarProgressLabel.text = SG
         CaloriesLeftLabel.text = CLeft
         WaterLeftLabel.text = WLeft
         SugarLeftLabel.text = SLeft
-        
-        
     }
 }

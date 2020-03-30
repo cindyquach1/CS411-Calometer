@@ -16,6 +16,9 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var WaterIntakeTextField: UITextField!
     @IBOutlet var SugarIntakeTextField: UITextField!
 
+    @IBAction func NextButton(_ sender: UIButton) {
+    }
+    
     var caloriesG: String!
     var waterG: String!
     var sugarG: String!
@@ -23,33 +26,56 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
 //Sends information from this page to the next: HomepageViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let HomeVC = segue.destination as? HomepageViewController else { return }
-        let calInt: Int? = Int(caloriesG)
-        let waterInt: Int? = Int(waterG)
-        let sugarInt: Int? = Int(sugarG)
-
-//Calculates the remaining calories, ounces, and grams
-        let cResult = Int(CalorieIntakeTextField.text!)! - calInt!
-        let wResult = Int(WaterIntakeTextField.text!)! - waterInt!
-        let sResult = Int(SugarIntakeTextField.text!)! - sugarInt!
-
         
-        let calorieIntake = " \(String(describing: CalorieIntakeTextField.text!)) "
-        let calorieProgress = caloriesG + " /" + calorieIntake
+        if CalorieIntakeTextField.text == "" || WaterIntakeTextField.text == "" || SugarIntakeTextField.text == "" {
+            let alertController = UIAlertController(title: "Missing Information", message:"You left one or more fields empty. Please make sure that all fields are filled before attempting to save.", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
+            
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+            
+        else {
+        
+            let calInt: Int! = Int(caloriesG)
+            let waterInt: Int! = Int(waterG)
+            let sugarInt: Int! = Int(sugarG)
 
-        let waterIntake = " \(String(describing: WaterIntakeTextField.text!)) "
-        let waterProgress = waterG + " /" + waterIntake
+    //Calculates the remaining calories, ounces, and grams
+            let cResult = calInt! - Int(CalorieIntakeTextField.text!)!
+            let wResult = waterInt! - Int(WaterIntakeTextField.text!)!
+            let sResult = sugarInt! - Int(SugarIntakeTextField.text!)!
 
-        let sugarIntake = " \(String(describing: SugarIntakeTextField.text!)) "
-        let sugarProgress = sugarG + " /" + sugarIntake
-        
-//Sends information to homepage
-        HomeVC.CG = calorieProgress
-        HomeVC.WG = waterProgress
-        HomeVC.SG = sugarProgress
-        HomeVC.CLeft = String(cResult)
-        HomeVC.WLeft = String(wResult)
-        HomeVC.SLeft = String(sResult)
-        
-        
+            
+            let calorieIntake = " \(String(describing: CalorieIntakeTextField.text!)) "
+            let calorieInt = Int(CalorieIntakeTextField.text!)!
+            let calorieProgress = calorieIntake + " /" + caloriesG
+
+            let waterIntake = " \(String(describing: WaterIntakeTextField.text!)) "
+            let watInt = Int(CalorieIntakeTextField.text!)!
+            let waterProgress = waterIntake + " /" + waterG
+
+            let sugarIntake = " \(String(describing: SugarIntakeTextField.text!)) "
+            let sugInt = Int(CalorieIntakeTextField.text!)!
+            let sugarProgress = sugarIntake + " /" + sugarG
+            
+            if calorieInt > calInt || watInt > waterInt || sugInt > sugarInt {
+                let alertController = UIAlertController(title: "Incompatible information", message:"Intake cannot be larger than goal, please re-enter a value less than or equal to goal!", preferredStyle: UIAlertControllerStyle.alert)
+                let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
+                
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                //Sends information to homepage
+                HomeVC.CG = calorieProgress
+                HomeVC.WG = waterProgress
+                HomeVC.SG = sugarProgress
+                HomeVC.CLeft = String(cResult)
+                HomeVC.WLeft = String(wResult)
+                HomeVC.SLeft = String(sResult)
+            }
+
+        }
     }
 }
