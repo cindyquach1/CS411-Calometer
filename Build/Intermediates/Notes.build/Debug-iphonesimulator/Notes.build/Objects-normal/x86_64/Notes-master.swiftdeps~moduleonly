@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
 options: "1fdcf565a1a672154dfeaa6364362a30"
-build_time: [1585544866, 371916000]
+build_time: [1585545720, 396859000]
 inputs:
   "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/noteTableViewCell.swift": [1585535296, 827357348]
   "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/noteViewController.swift": [1585535296, 827795430]
@@ -8,6 +8,6 @@ inputs:
   "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/HomepageViewController.swift": [1585535296, 812210789]
   "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/AppDelegate.swift": [1585535296, 706255575]
   "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/GoalsViewController.swift": [1585543873, 931851492]
-  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataClass.swift": [1585544865, 673554471]
-  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataProperties.swift": [1585544865, 675478212]
-  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Notes+CoreDataModel.swift": [1585544865, 670052379]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataClass.swift": [1585545719, 690798905]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataProperties.swift": [1585545719, 694318192]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Notes+CoreDataModel.swift": [1585545719, 685860970]
