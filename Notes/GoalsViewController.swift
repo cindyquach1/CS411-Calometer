@@ -11,14 +11,14 @@ import UIKit
 class GoalsViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var CaloriesTextField: UITextField!
-    
+    @IBOutlet var WaterTextField: UITextField!
     @IBOutlet var SugarTextField: UITextField!
-    
-    @IBAction func NextButton(_ sender: UIButton) {
-        let calories = " \(String(describing: CaloriesTextField.text)) "
-       // let water = " \(String(describing: WaterTextField.text)) "
-        let sugar = " \(String(describing: SugarTextField.text)) "
-        
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let intakeVC = segue.destination as? IntakeViewController else {return}
+        intakeVC.caloriesG = CaloriesTextField.text
+        intakeVC.waterG = WaterTextField.text
+        intakeVC.sugarG = SugarTextField.text
     }
     
 }
