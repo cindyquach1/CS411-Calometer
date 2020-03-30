@@ -15,7 +15,6 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var WaterIntakeTextField: UITextField!
     @IBOutlet var SugarIntakeTextField: UITextField!
 
-
     var caloriesG: String!
     var waterG: String!
     var sugarG: String!
@@ -23,9 +22,18 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let HomeVC = segue.destination as? HomepageViewController else { return }
-        let calorieIntake = " \(String(describing: CalorieIntakeTextField.text!)) "
-        let calorieProgress = caloriesG + " /" + calorieIntake
+        let calInt: Int? = Int(caloriesG)
+        let waterInt: Int? = Int(waterG)
+        let sugarInt: Int? = Int(sugarG)
+        
+        let cResult = Int(CalorieIntakeTextField.text!)! - calInt!
+        let wResult = Int(WaterIntakeTextField.text!)! - waterInt!
+        let sResult = Int(SugarIntakeTextField.text!)! - sugarInt!
 
+        
+        let calorieIntake = " \(String(describing: CalorieIntakeTextField.text!)) "
+        
+        let calorieProgress = caloriesG + " /" + calorieIntake
 
         let waterIntake = " \(String(describing: WaterIntakeTextField.text!)) "
         let waterProgress = waterG + " /" + waterIntake
@@ -33,9 +41,14 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
         let sugarIntake = " \(String(describing: SugarIntakeTextField.text!)) "
         let sugarProgress = sugarG + " /" + sugarIntake
         
+        
         HomeVC.CG = calorieProgress
         HomeVC.WG = waterProgress
         HomeVC.SG = sugarProgress
+        HomeVC.CLeft = String(cResult)
+        HomeVC.WLeft = String(wResult)
+        HomeVC.SLeft = String(sResult)
+        
         
     }
 }

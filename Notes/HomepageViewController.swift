@@ -14,9 +14,16 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet var WaterProgressLabel: UILabel!
     @IBOutlet var SugarProgressLabel: UILabel!
     
+    @IBOutlet var CaloriesLeftLabel: UILabel!
+    @IBOutlet var WaterLeftLabel: UILabel!
+    @IBOutlet var SugarLeftLabel: UILabel!
+    
     var CG: String!
     var WG: String!
     var SG: String!
+    var CLeft: String!
+    var WLeft: String!
+    var SLeft: String!
     
     
     override func viewDidLoad() {
@@ -24,5 +31,10 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
         CaloriesProgressLabel.text = CG
         WaterProgressLabel.text = WG
         SugarProgressLabel.text = SG
+        CaloriesLeftLabel.text = CLeft
+        WaterLeftLabel.text = WLeft
+        SugarLeftLabel.text = SLeft
+        
+        
     }
 }
