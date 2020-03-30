@@ -1,11 +1,13 @@
 version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
-options: "99fce9ffa4b8b3d5c11bc5a38c6adde0"
-build_time: [1585459207, 813511000]
+options: "1fdcf565a1a672154dfeaa6364362a30"
+build_time: [1585544866, 371916000]
 inputs:
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Notes/noteTableViewCell.swift": [1501870850, 0]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Notes/noteViewController.swift": [1583011121, 915698334]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Notes/noteTableViewController.swift": [1501876876, 0]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Notes/AppDelegate.swift": [1583807817, 550748173]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataClass.swift": [1585459207, 559323338]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataProperties.swift": [1585459207, 561546323]
-  "/Users/VictoriaTran/Documents/CPSC 411/Notes/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Notes+CoreDataModel.swift": [1585459207, 554490582]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/noteTableViewCell.swift": [1585535296, 827357348]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/noteViewController.swift": [1585535296, 827795430]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/noteTableViewController.swift": [1585535296, 827598992]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/HomepageViewController.swift": [1585535296, 812210789]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/AppDelegate.swift": [1585535296, 706255575]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Notes/GoalsViewController.swift": [1585543873, 931851492]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataClass.swift": [1585544865, 673554471]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Note+CoreDataProperties.swift": [1585544865, 675478212]
+  "/Users/VictoriaTran/Desktop/CS411-Star-Fit/Build/Intermediates/Notes.build/Debug-iphonesimulator/Notes.build/DerivedSources/CoreDataGenerated/Notes/Notes+CoreDataModel.swift": [1585544865, 670052379]

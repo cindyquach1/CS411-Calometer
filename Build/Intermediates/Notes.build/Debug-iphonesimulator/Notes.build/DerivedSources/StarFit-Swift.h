@@ -219,6 +219,27 @@ SWIFT_CLASS("_TtC7StarFit11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITextField;
+@class UIButton;
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC7StarFit19GoalsViewController")
+@interface GoalsViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified CaloriesTextField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified SugarTextField;
+- (IBAction)NextButton:(UIButton * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC7StarFit22HomepageViewController")
+@interface HomepageViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSEntityDescription;
 @class NSManagedObjectContext;
 
@@ -242,7 +263,6 @@ SWIFT_CLASS_NAMED("Note")
 @class UIView;
 @class UILabel;
 @class UIImageView;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
 @interface noteTableViewCell : UITableViewCell
@@ -260,7 +280,6 @@ SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
 @class UITableView;
 @class UITableViewRowAction;
 @class UIStoryboardSegue;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC7StarFit23noteTableViewController")
 @interface noteTableViewController : UITableViewController
