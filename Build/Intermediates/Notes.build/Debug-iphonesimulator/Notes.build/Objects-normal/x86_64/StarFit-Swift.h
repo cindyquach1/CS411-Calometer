@@ -220,22 +220,51 @@ SWIFT_CLASS("_TtC7StarFit11AppDelegate")
 @end
 
 @class UITextField;
-@class UIButton;
+@class UIStoryboardSegue;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC7StarFit19GoalsViewController")
 @interface GoalsViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified CaloriesTextField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified WaterTextField;
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified SugarTextField;
-- (IBAction)NextButton:(UIButton * _Nonnull)sender;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UILabel;
+
+SWIFT_CLASS("_TtC7StarFit22HomepageViewController")
+@interface HomepageViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified CaloriesProgressLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified WaterProgressLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified SugarProgressLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified CaloriesLeftLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified WaterLeftLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified SugarLeftLabel;
+@property (nonatomic, copy) NSString * _Null_unspecified CG SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.CG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified WG SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.WG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified SG SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.SG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified CLeft SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.CLeft' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified WLeft SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.WLeft' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified SLeft SWIFT_DEPRECATED_OBJC("Swift property 'HomepageViewController.SLeft' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC7StarFit22HomepageViewController")
-@interface HomepageViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
+SWIFT_CLASS("_TtC7StarFit20IntakeViewController")
+@interface IntakeViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified CalorieIntakeTextField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified WaterIntakeTextField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified SugarIntakeTextField;
+@property (nonatomic, copy) NSString * _Null_unspecified caloriesG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.caloriesG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified waterG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.waterG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Null_unspecified sugarG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.sugarG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -261,7 +290,6 @@ SWIFT_CLASS_NAMED("Note")
 @end
 
 @class UIView;
-@class UILabel;
 @class UIImageView;
 
 SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
@@ -279,7 +307,6 @@ SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
 
 @class UITableView;
 @class UITableViewRowAction;
-@class UIStoryboardSegue;
 
 SWIFT_CLASS("_TtC7StarFit23noteTableViewController")
 @interface noteTableViewController : UITableViewController
