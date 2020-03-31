@@ -50,16 +50,19 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
                 let calorieIntake = " \(String(describing: CalorieIntakeTextField.text!)) "
                 let calorieInt = Int(CalorieIntakeTextField.text!)!
                 let calorieProgress = calorieIntake + " /" + caloriesG
+                CalorieIntakeTextField.text = ""
 
                 let waterIntake = " \(String(describing: WaterIntakeTextField.text!)) "
-                let watInt = Int(CalorieIntakeTextField.text!)!
+                let watInt = Int(WaterIntakeTextField.text!)!
                 let waterProgress = waterIntake + " /" + waterG
+                WaterIntakeTextField.text = ""
 
                 let sugarIntake = " \(String(describing: SugarIntakeTextField.text!)) "
-                let sugInt = Int(CalorieIntakeTextField.text!)!
+                let sugInt = Int(SugarIntakeTextField.text!)!
                 let sugarProgress = sugarIntake + " /" + sugarG
+                SugarIntakeTextField.text = ""
                 
-                if calInt > calorieInt || waterInt > watInt || sugarInt > sugInt {
+                if calInt < calorieInt || waterInt < watInt || sugarInt < sugInt {
                     let alertController = UIAlertController(title: "Incompatible information", message:"Intake cannot be larger than goal, please re-enter a value less than or equal to goal!", preferredStyle: UIAlertControllerStyle.alert)
                     let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
                     
@@ -76,7 +79,6 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
                     HomeVC.WLeft = String(wResult)
                     HomeVC.SLeft = String(sResult)
                 }
-
             }
         }
     }

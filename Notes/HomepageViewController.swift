@@ -36,6 +36,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
         WaterLeftLabel.text = WLeft
         SugarLeftLabel.text = SLeft
         
+        
         //IF ALL GOALS HAVE BEEN REACHED
             if CLeft == "0" && WLeft == "0" && SLeft == "0" {
                 let alertController = UIAlertController(title: "CONGRATULATIONS", message:"You have successfully reached ALL of your goals for the day!.", preferredStyle: UIAlertControllerStyle.alert)
@@ -82,8 +83,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
                   self.present(alertController, animated: true, completion: nil)
                   }
         
-        
-        
     }
+    
     
 }
