@@ -214,12 +214,13 @@ SWIFT_CLASS("_TtC7StarFit11AppDelegate")
 - (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 - (void)applicationDidBecomeActive:(UIApplication * _Nonnull)application;
 - (void)applicationWillTerminate:(UIApplication * _Nonnull)application;
-@property (nonatomic, strong) NSPersistentContainer * _Nonnull persistentContainer SWIFT_DEPRECATED_OBJC("Swift property 'AppDelegate.persistentContainer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)saveContext SWIFT_DEPRECATED_OBJC("Swift method 'AppDelegate.saveContext()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) NSPersistentContainer * _Nonnull pContainer SWIFT_DEPRECATED_OBJC("Swift property 'AppDelegate.pContainer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)saveStuff SWIFT_DEPRECATED_OBJC("Swift method 'AppDelegate.saveStuff()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UITextField;
+@class UIButton;
 @class UIStoryboardSegue;
 @class NSBundle;
 @class NSCoder;
@@ -229,6 +230,7 @@ SWIFT_CLASS("_TtC7StarFit19GoalsViewController")
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified CaloriesTextField;
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified WaterTextField;
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified SugarTextField;
+- (IBAction)NextButton:(UIButton * _Nonnull)sender;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -261,6 +263,7 @@ SWIFT_CLASS("_TtC7StarFit20IntakeViewController")
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified CalorieIntakeTextField;
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified WaterIntakeTextField;
 @property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified SugarIntakeTextField;
+- (IBAction)NextButton:(UIButton * _Nonnull)sender;
 @property (nonatomic, copy) NSString * _Null_unspecified caloriesG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.caloriesG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSString * _Null_unspecified waterG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.waterG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSString * _Null_unspecified sugarG SWIFT_DEPRECATED_OBJC("Swift property 'IntakeViewController.sugarG' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -286,7 +289,7 @@ SWIFT_CLASS_NAMED("Note")
 
 
 @interface UITextField (SWIFT_EXTENSION(StarFit))
-- (void)setBottomBorder SWIFT_DEPRECATED_OBJC("Swift method 'UITextField.setBottomBorder()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)bottomLine SWIFT_DEPRECATED_OBJC("Swift method 'UITextField.bottomLine()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 @class UIView;
@@ -294,10 +297,10 @@ SWIFT_CLASS_NAMED("Note")
 
 SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
 @interface noteTableViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified shadowView;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noteNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noteDescriptionLabel;
-@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified noteImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified entryShadow;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameOfentry;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified entryDescriptionLbl;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified noteImage;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (void)configureCellWithNote:(Note * _Nonnull)note SWIFT_DEPRECATED_OBJC("Swift method 'noteTableViewCell.configureCell(note:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -310,7 +313,7 @@ SWIFT_CLASS("_TtC7StarFit17noteTableViewCell")
 
 SWIFT_CLASS("_TtC7StarFit23noteTableViewController")
 @interface noteTableViewController : UITableViewController
-@property (nonatomic, copy) NSArray<Note *> * _Nonnull notes SWIFT_DEPRECATED_OBJC("Swift property 'noteTableViewController.notes' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<Note *> * _Nonnull note_entries SWIFT_DEPRECATED_OBJC("Swift property 'noteTableViewController.note_entries' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) NSManagedObjectContext * _Nullable managedObjectContext SWIFT_DEPRECATED_OBJC("Swift property 'noteTableViewController.managedObjectContext' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
@@ -335,23 +338,23 @@ SWIFT_CLASS("_TtC7StarFit23noteTableViewController")
 
 SWIFT_CLASS("_TtC7StarFit18noteViewController")
 @interface noteViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
-@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified noteInfoView;
-@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified noteImageViewView;
-@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified noteNameLabel;
-@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified noteDescriptionLabel;
-@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified noteImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified entryInfo_View;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified entryImg_view;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified entryName_Label;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified entryDesc_label;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified entryImg_ImageView;
 @property (nonatomic, readonly, strong) NSManagedObjectContext * _Nullable managedObjectContext SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.managedObjectContext' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) NSFetchedResultsController<Note *> * _Null_unspecified notesFetchedResultsController SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.notesFetchedResultsController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) NSFetchedResultsController<Note *> * _Null_unspecified entry_fetchResults SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.entry_fetchResults' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSArray<Note *> * _Nonnull notes SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.notes' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) Note * _Nullable note SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.note' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic) BOOL isExsisting SWIFT_DEPRECATED_OBJC("Swift property 'noteViewController.isExsisting' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (void)saveToCoreDataWithCompletion:(void (^ _Nonnull)(void))completion SWIFT_DEPRECATED_OBJC("Swift method 'noteViewController.saveToCoreData(completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (IBAction)pickImageButtonWasPressed:(id _Nonnull)sender;
+- (IBAction)chooseImageButton_pressed:(id _Nonnull)sender;
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> * _Nonnull)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
-- (IBAction)saveButtonWasPressed:(UIBarButtonItem * _Nonnull)sender;
+- (IBAction)saveBtn_pressed:(UIBarButtonItem * _Nonnull)sender;
 - (IBAction)cancel:(UIBarButtonItem * _Nonnull)sender;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)textView:(UITextView * _Nonnull)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text SWIFT_WARN_UNUSED_RESULT;

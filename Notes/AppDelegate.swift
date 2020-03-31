@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        UINavigationBar.appearance().barTintColor = UIColor(red: 79.0/255.0, green: 245.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+        //NAVIGATION BAR
+        UINavigationBar.appearance().barTintColor =
+            UIColor( red: 79.0/255.0, green: 245.0/255.0, blue: 212.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
         let color = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
        let font = UIFont(name: "Roboto-Medium", size: 18)!
@@ -49,28 +51,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        self.saveContext()
+        self.saveStuff()
         
     }
 
-    // MARK: - Core Data stack
-    lazy var persistentContainer: NSPersistentContainer = {
+    // Core Data
+    lazy var pContainer: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "Notes")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        let p_container = NSPersistentContainer(name: "Notes")
+        p_container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("ERROR: \(error), \(error.userInfo)")
             }
         })
-        return container
+        return p_container
     }()
 
-    // MARK: - Core Data Saving support
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+    // Saving Core Data
+    func saveStuff () {
+        let stuff = pContainer.viewContext
+        if stuff.hasChanges {
             do {
-                try context.save()
+                try stuff.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -80,4 +82,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appDelegate.persistentContainer.viewContext
+let context = appDelegate.pContainer.viewContext

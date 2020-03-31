@@ -89,10 +89,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="noteDescriptionLabel" destination="ZOh-wN-fgw" id="t1N-qQ-48f"/>
-                                    <outlet property="noteImageView" destination="SNx-O1-I4x" id="96B-sQ-978"/>
-                                    <outlet property="noteNameLabel" destination="mXy-Ba-qUU" id="9oh-yf-aRb"/>
-                                    <outlet property="shadowView" destination="EDo-fs-sBJ" id="wR6-cp-9Ng"/>
+                                    <outlet property="entryDescriptionLbl" destination="ZOh-wN-fgw" id="t1N-qQ-48f"/>
+                                    <outlet property="entryShadow" destination="EDo-fs-sBJ" id="wR6-cp-9Ng"/>
+                                    <outlet property="nameOfentry" destination="mXy-Ba-qUU" id="9oh-yf-aRb"/>
+                                    <outlet property="noteImage" destination="SNx-O1-I4x" id="96B-sQ-978"/>
                                     <segue destination="vAq-dH-0Fi" kind="show" identifier="showDetails" id="LxK-So-mBk"/>
                                 </connections>
                             </tableViewCell>
@@ -203,22 +203,22 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="saveIcon" id="7wo-8v-nHP">
                             <connections>
-                                <action selector="saveButtonWasPressed:" destination="vAq-dH-0Fi" id="s7t-7q-yx3"/>
+                                <action selector="saveBtn_pressed:" destination="vAq-dH-0Fi" id="s7t-7q-yx3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noteDescriptionLabel" destination="uTK-De-Rif" id="Jpp-RL-hqI"/>
-                        <outlet property="noteImageView" destination="ziH-Jl-oSJ" id="5dQ-42-fdQ"/>
-                        <outlet property="noteImageViewView" destination="8aL-eO-G96" id="16d-V4-iT0"/>
-                        <outlet property="noteInfoView" destination="22L-HK-LAt" id="CUS-BY-iL5"/>
-                        <outlet property="noteNameLabel" destination="RhL-T5-vBj" id="FH6-4Z-Xat"/>
+                        <outlet property="entryDesc_label" destination="uTK-De-Rif" id="Jpp-RL-hqI"/>
+                        <outlet property="entryImg_ImageView" destination="ziH-Jl-oSJ" id="5dQ-42-fdQ"/>
+                        <outlet property="entryImg_view" destination="8aL-eO-G96" id="16d-V4-iT0"/>
+                        <outlet property="entryInfo_View" destination="22L-HK-LAt" id="CUS-BY-iL5"/>
+                        <outlet property="entryName_Label" destination="RhL-T5-vBj" id="FH6-4Z-Xat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqW-DY-zEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VZ0-zy-MMd">
                     <connections>
-                        <action selector="pickImageButtonWasPressed:" destination="vAq-dH-0Fi" id="TiI-Mp-sWs"/>
+                        <action selector="chooseImageButton_pressed:" destination="vAq-dH-0Fi" id="TiI-Mp-sWs"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

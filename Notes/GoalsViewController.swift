@@ -19,7 +19,7 @@ class GoalsViewController: UIViewController, UINavigationControllerDelegate, UIT
     @IBAction func NextButton(_ sender: UIButton) {
 
     }
-    
+   
     //Sends information from this screen to the next: IntakeViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let intakeVC = segue.destination as? IntakeViewController else {return}
@@ -36,5 +36,7 @@ class GoalsViewController: UIViewController, UINavigationControllerDelegate, UIT
         intakeVC.sugarG = SugarTextField.text
         }
     }
+    
+    
     
 }

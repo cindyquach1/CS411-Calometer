@@ -13,17 +13,18 @@ import CoreData
 //Table View Controller file
 class noteTableViewController: UITableViewController {
 
-    var notes = [Note]()
+    var note_entries = [Note]()
     
     var managedObjectContext: NSManagedObjectContext? {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return (UIApplication.shared.delegate as! AppDelegate).pContainer.viewContext
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveNotes()
         
-    //Styles
+        
+   //TABLE BACKGROUND COLOR
         self.tableView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
         
     }
@@ -44,13 +45,13 @@ class noteTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return note_entries.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteTableViewCell", for: indexPath) as! noteTableViewCell
 
-        let note: Note = notes[indexPath.row]
+        let note: Note = note_entries[indexPath.row]
         cell.configureCell(note: note)
         cell.backgroundColor = UIColor.clear
         
@@ -72,12 +73,12 @@ class noteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "                    ") { (action, indexPath) in
             
-            let note = self.notes[indexPath.row]
+            let note = self.note_entries[indexPath.row]
             context.delete(note)
             
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            (UIApplication.shared.delegate as! AppDelegate).saveStuff()
             do {
-                self.notes = try context.fetch(Note.fetchRequest())
+                self.note_entries = try context.fetch(Note.fetchRequest())
             }
                 
             catch {
@@ -97,7 +98,7 @@ class noteTableViewController: UITableViewController {
             
             self.fetchNotesFromCoreData { (notes) in
                 if let notes = notes {
-                    self.notes = notes
+                    self.note_entries = notes
                     self.tableView.reloadData()
                 }
             }
@@ -125,7 +126,7 @@ class noteTableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
                 let noteDetailsViewController = segue.destination as! noteViewController
-                let selectedNote: Note = notes[indexPath.row]
+                let selectedNote: Note = note_entries[indexPath.row]
                 
                 noteDetailsViewController.indexPath = indexPath.row
                 noteDetailsViewController.isExsisting = false
