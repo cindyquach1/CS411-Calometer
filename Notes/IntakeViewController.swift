@@ -59,7 +59,7 @@ class IntakeViewController: UIViewController, UINavigationControllerDelegate, UI
                 let sugInt = Int(CalorieIntakeTextField.text!)!
                 let sugarProgress = sugarIntake + " /" + sugarG
                 
-                if calorieInt > calInt || watInt > waterInt || sugInt > sugarInt {
+                if calInt > calorieInt || waterInt > watInt || sugarInt > sugInt {
                     let alertController = UIAlertController(title: "Incompatible information", message:"Intake cannot be larger than goal, please re-enter a value less than or equal to goal!", preferredStyle: UIAlertControllerStyle.alert)
                     let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
                     

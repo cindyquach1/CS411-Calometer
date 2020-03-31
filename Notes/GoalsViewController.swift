@@ -23,7 +23,7 @@ class GoalsViewController: UIViewController, UINavigationControllerDelegate, UIT
     //Sends information from this screen to the next: IntakeViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let intakeVC = segue.destination as? IntakeViewController else {return}
-        if CaloriesTextField.text == "" || WaterTextField.text == "" || SugarTextField.text == "" { let alertController = UIAlertController(title: "Missing Information", message:"You left one or more fields empty. Please make sure that all fields are filled before attempting to save.", preferredStyle: UIAlertControllerStyle.alert)
+        if CaloriesTextField.text == "" || WaterTextField.text == "" || SugarTextField.text == "" { let alertController = UIAlertController(title: "Missing Information", message:" Please make sure that all fields are filled.", preferredStyle: UIAlertControllerStyle.alert)
         let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
         
         alertController.addAction(OKAction)
