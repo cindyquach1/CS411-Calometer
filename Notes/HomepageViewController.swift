@@ -38,7 +38,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
         
         //IF ALL GOALS HAVE BEEN REACHED
             if CLeft == "0" && WLeft == "0" && SLeft == "0" {
-                let alertController = UIAlertController(title: "CONGRATULATIONS", message:"You have successfully reached your ALL of your goals for the day!.", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "CONGRATULATIONS", message:"You have successfully reached ALL of your goals for the day!.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "Yay!", style: UIAlertActionStyle.default, handler: nil)
             
             alertController.addAction(OKAction)
@@ -48,7 +48,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
             //IF 2 GOALS HAVE BEEN REACHED
             else  if ( CLeft == "0" && WLeft == "0" ) || ( CLeft == "0" && SLeft == "0" ) || ( WLeft == "0" && CLeft == "0" )
             {
-                let alertController = UIAlertController(title: "Yes! Almost there!", message:"You have met two of your goals so far One more to go!.", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "Yes! Almost there!", message:"You have met two of your goals so far One more to go!", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "Ok!", style: UIAlertActionStyle.default, handler: nil)
                    
                    alertController.addAction(OKAction)
@@ -81,7 +81,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate, 
                   alertController.addAction(OKAction)
                   self.present(alertController, animated: true, completion: nil)
                   }
-         
         
         
         
